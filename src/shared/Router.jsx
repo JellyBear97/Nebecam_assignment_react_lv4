@@ -11,7 +11,7 @@ const Router = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/daily-todo" element={<DailyTodo />} />
+          <Route path="/daily-todo/:date" element={<DailyTodo />} />
         </Route>
       </Routes>
     </BrowserRouter>
