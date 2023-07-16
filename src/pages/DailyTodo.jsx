@@ -10,11 +10,15 @@ const DailyTodo = () => {
   const { state } = useLocation();
   const { trueNum, totalNum } = state;
 
+  let forTodoToddleObj = {};
+  let forMutateToggleObj = {};
   const { data, isLoading, isError } = useQuery('oneDayTodo', async () => {
     const response = await axios.get(`http://localhost:4001/todos?userId=1&&date=${date}`);
-    let forTodoToddleObj = {};
+
+    // for toggle
     response.data.forEach(item => {
-      return (forTodoToddleObj = { ...forTodoToddleObj, [item.id]: false });
+      forTodoToddleObj = { ...forTodoToddleObj, [item.id]: false };
+      forMutateToggleObj = { ...forMutateToggleObj, [item.id]: false };
     });
     return response.data;
   });
@@ -34,7 +38,7 @@ const DailyTodo = () => {
       </p>
       <StUl>
         {data.map(item => {
-          return <DailyTodoItem item={item} />;
+          return <DailyTodoItem item={item} forTodoToddleObj={forTodoToddleObj} forMutateToggleObj={forMutateToggleObj} />;
         })}
       </StUl>
     </>
