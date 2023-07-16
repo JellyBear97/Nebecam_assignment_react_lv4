@@ -1,14 +1,23 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation, useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 import DailyTodoItem from '../components/DailyTodo/DailyTodoItem';
+import ModalPortal from '../components/common/ModalPortal';
 
 const DailyTodo = () => {
   const { date } = useParams();
   const { state } = useLocation();
   const { trueNum, totalNum } = state;
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setIsOpenModal(false);
+  };
 
   let forTodoToddleObj = {};
   let forMutateToggleObj = {};
@@ -32,7 +41,10 @@ const DailyTodo = () => {
   }
   return (
     <>
+      {/* closePortal로 전해주는 handleCloseModal을 children에 태워보내면 되겠네 */}
+      {isOpenModal && <ModalPortal closePortal={handleCloseModal}>여기에 form</ModalPortal>}
       <h1>{date}'s TODOLIST</h1>
+      <button onClick={handleOpenModal}>새로운 todo 만들기</button>
       <p>
         완료현황 : {trueNum}/{totalNum}
       </p>
