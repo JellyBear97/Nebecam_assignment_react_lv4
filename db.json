@@ -2,13 +2,6 @@
   "todos": [
     {
       "userId": 1,
-      "id": 1,
-      "date": "230716",
-      "title": "delectus aut autem",
-      "completed": false
-    },
-    {
-      "userId": 1,
       "id": 2,
       "date": "230716",
       "title": "quis ut nam facilis et officia qui",
@@ -23,13 +16,6 @@
     },
     {
       "userId": 1,
-      "id": 4,
-      "date": "230716",
-      "title": "et porro tempora",
-      "completed": true
-    },
-    {
-      "userId": 1,
       "id": 5,
       "date": "230716",
       "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
@@ -41,34 +27,6 @@
       "date": "230716",
       "title": "qui ullam ratione quibusdam voluptatem quia omnis",
       "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 7,
-      "date": "230716",
-      "title": "illo expedita consequatur quia in",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 8,
-      "date": "230716",
-      "title": "quo adipisci enim quam ut ab",
-      "completed": true
-    },
-    {
-      "userId": 1,
-      "id": 9,
-      "date": "230716",
-      "title": "molestiae perspiciatis ipsa",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 10,
-      "date": "230716",
-      "title": "illo est ratione doloremque quia maiores aut",
-      "completed": true
     },
     {
       "userId": 1,
@@ -90,13 +48,6 @@
       "date": "230715",
       "title": "et doloremque nulla",
       "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 14,
-      "date": "230715",
-      "title": "repellendus sunt dolores architecto voluptatum",
-      "completed": true
     },
     {
       "userId": 1,
