@@ -16,7 +16,6 @@ const DailyTodo = () => {
     response.data.forEach(item => {
       return (forTodoToddleObj = { ...forTodoToddleObj, [item.id]: false });
     });
-    setTodoOpen(forTodoToddleObj);
     return response.data;
   });
 
@@ -28,9 +27,9 @@ const DailyTodo = () => {
     return <div>에러남</div>;
   }
 
-  if (data) {
-    console.log(data);
-  }
+  // if (data) {
+  //   console.log(data);
+  // }
 
   // 이건 찾아본거라 다시 써보장
   const toggleTodo = todoId => {
