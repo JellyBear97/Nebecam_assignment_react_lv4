@@ -70,12 +70,6 @@ const Home = () => {
           );
         })}
       </StUl>
-      <button
-        onClick={() => {
-          navigate('/daily-todo');
-        }}>
-        dailyTodo로 이동
-      </button>
     </>
   );
 };
