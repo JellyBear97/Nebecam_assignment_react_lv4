@@ -61,7 +61,7 @@ const Home = () => {
               </span>
               <button
                 onClick={() => {
-                  navigate(`/daily-todo/${item.date}`);
+                  navigate(`/daily-todo/${item.date}`, { state: { trueNum: item.trueNum, totalNum: item.totalNum } });
                 }}>
                 관리하러 go
               </button>
