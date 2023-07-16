@@ -1,14 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { useLocation, useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
+import DailyTodoItem from '../components/DailyTodo/DailyTodoItem';
 
 const DailyTodo = () => {
   const { date } = useParams();
   const { state } = useLocation();
   const { trueNum, totalNum } = state;
-  const [todoOpen, setTodoOpen] = useState({});
 
   const { data, isLoading, isError } = useQuery('oneDayTodo', async () => {
     const response = await axios.get(`http://localhost:4001/todos?userId=1&&date=${date}`);
@@ -26,18 +26,6 @@ const DailyTodo = () => {
   if (isError) {
     return <div>에러남</div>;
   }
-
-  // if (data) {
-  //   console.log(data);
-  // }
-
-  // 이건 찾아본거라 다시 써보장
-  const toggleTodo = todoId => {
-    setTodoOpen(prevTodoOpen => ({
-      ...prevTodoOpen,
-      [todoId]: !prevTodoOpen[todoId],
-    }));
-  };
   return (
     <>
       <h1>{date}'s TODOLIST</h1>
@@ -46,26 +34,7 @@ const DailyTodo = () => {
       </p>
       <StUl>
         {data.map(item => {
-          return (
-            <li key={item.id}>
-              <h3>{item.title}</h3>
-              <button
-                onClick={() => {
-                  toggleTodo(item.id);
-                }}>
-                상세보기
-              </button>
-              {todoOpen[item.id] && (
-                <StMoreLook>
-                  <p>
-                    내용 : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id aspernatur magni, doloremque velit soluta, omnis aliquam provident, ipsa necessitatibus earum neque repellendus
-                    natus saepe exercitationem vero. Velit enim harum aliquam?
-                  </p>
-                  <p>완료여부 : {item.completed ? '완료' : '미완료'}</p>
-                </StMoreLook>
-              )}
-            </li>
-          );
+          return <DailyTodoItem item={item} />;
         })}
       </StUl>
     </>
@@ -80,10 +49,4 @@ const StUl = styled.ul`
     border-bottom: 1px solid black;
     padding: 20px;
   }
-`;
-
-const StMoreLook = styled.div`
-  border: 1px solid black;
-  padding: 20px;
-  margin-top: 20px;
 `;
